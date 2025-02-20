@@ -12,7 +12,7 @@
       --primary-color: #333;
       --secondary-color: #f4f4f4;
       --accent-color: #007BFF;
-      --bg-color: #f4f4f4;
+      --bg-color: #ffffff; /* Fundo levemente acinzentado para contraste */
       --card-bg: #fff;
       --font-family: 'Montserrat', sans-serif;
       --transition-speed: 0.3s;
@@ -31,56 +31,44 @@
       color: var(--primary-color);
       line-height: 1.6;
       scroll-behavior: smooth;
+      padding: 20px;
     }
     
-    /* Header do currículo dentro da div */
+    /* Header aprimorado */
     header {
       background: linear-gradient(135deg, var(--accent-color), #00c6ff);
       color: #fff;
-      padding: 20px 0;
+      padding: 30px 0;
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      border-radius: 12px 12px 0px 0px;
     }
     
     header h1 {
-      font-size: 2.5em;
-      margin-bottom: 5px;
-    }
-    
-    nav {
-      margin-top: 10px;
-    }
-    
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color var(--transition-speed);
-    }
-    
-    nav ul li a:hover {
-      color: #000;
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     }
     
     .container {
       max-width: 900px;
-      margin: 40px auto;
+      margin: 0 auto;
       background: var(--card-bg);
       padding: 40px;
       border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0);
     }
     
+    /* Animação de entrada para as seções */
     section {
       margin-bottom: 40px;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
     section h2 {
@@ -101,7 +89,7 @@
     
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
     }
     
     .card p {
@@ -161,12 +149,12 @@
       border-radius: 50%;
     }
     
-    /* Botão imprimir currículo */
+    /* Botão de impressão aprimorado */
     .print-btn {
       display: block;
-      width: 200px;
+      width: 220px;
       margin: 30px auto 0;
-      padding: 10px 20px;
+      padding: 12px 20px;
       background: var(--accent-color);
       color: #fff;
       text-align: center;
@@ -175,10 +163,33 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background var(--transition-speed);
+      font-size: 1.1em;
     }
     
     .print-btn:hover {
       background: #0056b3;
+    }
+    
+    /* Impressão: Minimiza quebras de página e remove elementos desnecessários */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        page-break-before: avoid !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .print-btn {
+        display: none;
+      }
+      @page {
+        margin: 0;
+        size: auto;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
     }
     
     /* Responsividade */
@@ -186,18 +197,11 @@
       .container {
         padding: 20px;
       }
-      
       header h1 {
         font-size: 2em;
       }
-      
       section h2 {
         font-size: 1.5em;
-      }
-      
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
       }
     }
   </style>
@@ -264,7 +268,7 @@
           <li>
             <p><strong>Formação Completa em Pilates (Solo, Bolas e Aparelhos) - 120h</strong></p>
             <p><small>VOLL Pilates Group / Espaço Vida Pilates - 17/11/2023</small></p>
-            <p><small>Conclusão do curso especializado com parte teórica e prática do método Pilates.</small></p>
+            <p><small>Conclusão do curso com parte teórica e prática do método Pilates.</small></p>
           </li>
           <li>
             <p><strong>Estudante Bacharel com Licenciatura em Educação Física</strong></p>
